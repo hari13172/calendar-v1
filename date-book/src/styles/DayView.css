@@ -1,0 +1,218 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;  /* Ensure no space from body or html */
+  overflow: hidden;  /* Prevent page from scrolling */
+}
+
+.main-layout {
+  display: flex;
+  height: 150vh;  /* Use full viewport height */
+  margin: 0;
+  overflow: hidden;  /* Ensure the entire window does not scroll */
+}
+
+/* Header style */
+.header {
+  height: 50px;
+  background-color: rgb(131, 123, 123);
+  padding: 20px;
+  box-shadow: 0 4px 2px -2px rgb(158, 154, 154);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 17px;
+  
+}
+
+/* Sidebar style */
+.sidebar {
+  width: 250px;
+  background-color: #333;
+  color: white;
+  padding: 20px;
+  position: fixed;
+  top: 80px;  /* Adjust sidebar position */
+  left: 0;
+  height: calc(100vh - 80px);  /* Sidebar height to fit inside the window */
+  z-index: 10;
+  overflow-y: auto;  /* Allow scrolling inside sidebar */
+}
+
+/* Main content area */
+.main-content {
+  flex: 1;
+  padding-left: 250px;  /* Allow content to start from right after the sidebar */
+  padding-top: 80px;    /* Allow content to start from below the header */
+  background-color: #f9f9f9;
+  overflow-y: auto;  /* Enable vertical scrolling in main content */
+  position: relative;
+  height: calc(100vh - 80px);  /* Ensure content takes up full viewport height */
+  margin-left: 0;  /* Remove the extra margin-left */
+  box-sizing: border-box;  /* Ensure no extra space is taken */
+  
+}
+
+/* Calendar container adjusted to fill remaining space */
+.calendar-container {
+  flex-grow: 1;
+  font-family: 'Arial', sans-serif;
+  background-color: #ffffff;
+  border-radius: 8px;
+  padding: 16px;
+  margin-top: -30px;  /* Adjust for header margin */
+  display: flex;
+  flex-direction: column;
+  height: 100%;  /* Fill remaining space of parent */
+  overflow-y: auto;  /* Allow scrolling inside the calendar container */
+}
+
+/* Day view grid layout */
+.day-view {
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  gap: 0;
+  height: 100%;
+  border-collapse: collapse;
+  background-color: white;
+  overflow: auto;
+}
+
+/* Time slots column */
+.time-column {
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid #e5e5e5;
+  background-color: white;
+}
+
+.time-slot {
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  color: #333;
+  cursor: pointer;
+  background-color: white;
+  transition: background-color 0.3s ease;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.time-slot.selected {
+  background-color: #e0f7fa;
+  font-weight: bold;
+}
+
+.time-slot:hover {
+  background-color: #f0f0f0;
+}
+
+/* Events column */
+.events-column {
+  display: flex;
+  flex-direction: column;
+  padding-left: 16px;
+  flex-grow: 1;
+  background-color: white;
+  position: relative;
+}
+
+/* Event slots */
+.event-slot {
+  height: 40px;
+  border-bottom: 1px solid #e5e5e5;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding-left: 8px;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+  background-color: white;
+}
+
+.event-slot.highlighted {
+  background-color: #d1f5f1;
+}
+
+.event-slot span {
+  font-size: 14px;
+  color: #555;
+}
+
+.event-slot:hover {
+  background-color: #f5f5f5;
+}
+
+/* Current time indicator */
+.current-time-indicator {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background-color: red;
+  z-index: 2;
+}
+
+/* Scrollbar styling */
+.calendar-container::-webkit-scrollbar {
+  width: 8px;
+}
+
+.calendar-container::-webkit-scrollbar-thumb {
+  background-color: #888;
+  border-radius: 4px;
+}
+
+.calendar-container::-webkit-scrollbar-thumb:hover {
+  background-color: #eedede;
+}
+
+.calendar-container::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+/* Main layout */
+.main-layout {
+  display: flex;
+  height: 100vh;  /* Use full viewport height */
+  margin: 0;
+  overflow: hidden;  /* Ensure the entire window does not scroll */
+}
+
+/* Main content area */
+.main-content {
+  flex: 1;
+  padding-left: 250px;  /* Allow content to start from right after the sidebar */
+  padding-top: 80px;    /* Allow content to start from below the header */
+  background-color: #f9f9f9;
+  overflow-y: auto;  /* Enable vertical scrolling in main content */
+  position: relative;
+  height: calc(100vh - 50px);  /* Adjust content height to make it slightly bigger */
+  margin-left: 0;  /* Remove the extra margin-left */
+  box-sizing: border-box;  /* Ensure no extra space is taken */
+}
+
+/* Calendar container adjusted to fit content */
+.calendar-container {
+  flex-grow: 1;
+  font-family: 'Arial', sans-serif;
+  background-color:  #f0f0f0;
+  border-radius: 8px;
+  padding: 16px;
+  margin-top: 0px;  /* Adjust for header margin */
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 150px);  /* Increase height to make it slightly bigger */
+  overflow-y: auto;  /* Allow scrolling inside the calendar container */
+  height: 55%;
+}
+.header {
+  height: 50px;
+  background-color: #e6e2e2; /* Lighter gray */
+  padding: 20px;
+  box-shadow: 0 4px 2px -2px rgb(190, 187, 187);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 17px;
+}

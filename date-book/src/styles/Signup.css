@@ -1,0 +1,195 @@
+.register{
+    background-color: #e9ebee;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 50px;
+    
+}
+.register_container{
+    flex-direction: column;
+    border: 1px solid #dddfe2;
+    border-radius: 8px;
+    box-shadow: 0.2px 4px rgba(0,0,0,0.1), 0 8px 16px rgba(0,0,0,0.1);
+    width: 436px;
+    background-color: #fff;
+    text-align: center;
+    margin-bottom: 50px;
+    margin-top: -50px; /* Adjust this value to move the container higher or lower */
+}
+.register_container > h3{
+    font-weight: 400;
+    margin-top: 24px;
+    margin-bottom: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.hr3{
+    margin-top: 0 !important;
+    border-bottom: 1px solid #dadde1 !important;
+    margin-bottom: 20px;
+}
+.register_container >h1{
+    margin-top: 15px;
+    font-size: 25px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: black;
+}
+.row{
+    display: flex;
+    flex-direction: row;
+    margin-left: 10px;
+}
+.row input{
+    height: 35px;
+    margin-bottom: 10px;
+    background-color: white;
+    border: 0.5px solid gray;
+    border-radius: 5px;
+    outline: none;
+    padding-left: 20px;
+    border: 1px solid #dddfe2;
+    color: #1d2129;
+    line-height: 16px;
+    font-size: 17px;
+    vertical-align: middle;
+    margin-right: 10px;
+    width: 180px;
+}
+.register_container >p{
+    font-size: 15px;
+    color: #606770;
+    text-align: 10px;
+    margin-left: 10px;
+    margin-bottom: 5px;
+}
+.center>input{
+    height: 35px;
+    margin-bottom: 10px;
+    background-color: white;
+    border: 0.5px solid gray;
+    border-radius: 5px;
+    outline: none;
+    padding-left: 20px;
+    border: 1px solid #dddfe2;
+    color: #1d2129;
+    line-height: 16px;
+    font-size: 17px;
+    vertical-align: middle;
+    margin-right: 10px;
+    width: 96%;
+    margin-left: 10px;
+}
+.center > input::-webkit-input-placeholder{
+    font-size: 17px;
+    color: rgba(128,128,128,0.8);
+    padding-left: 0px;
+}
+.register_register{
+    cursor: pointer;
+    display: inline-block;
+    text-decoration: none;
+    white-space: nowrap;
+    position: relative;
+    text-align: center;
+    text-shadow: none;
+    vertical-align: middle;
+    font-weight: bold;
+    justify-content: center;
+    background-color: #00a400;
+    border: none;
+    border-radius: 6px;
+    font-size: 20px;
+    line-height: 48px;
+    padding: 0 16px;
+    width: 55%;
+    height: 45px;
+    margin-bottom: 20px;
+    color: #fff;
+}
+.register_date2{
+    margin-left: -70px;
+    margin-right: 10px !important;
+    height: 40px;
+    border: 1px solid #dddfe2;
+    width: 130px;
+    outline: #ccd0d5;
+    border-radius: 5px;
+    margin-top: 40px;
+    float: left;
+}
+.register_date3{
+    margin-left: 10px !important;
+    margin-right: 10px !important;
+    height: 40px;
+    width: 130px;
+    border: 1px solid #dddfe2;
+    outline: #ccd0d5;
+    border-radius: 5px;
+    margin-top: 40px;
+    float: left;
+}
+.register_date,.register_gender{
+    font-size: 12px;
+    color: #606770;
+    font-weight: 400;
+    float: left;
+    margin-left: 10px;
+    margin-top: 10px;
+}
+.register_radiocontainer{
+    margin-top: 40px;
+    display: flex;
+    flex-direction: row;
+    margin-right: -399px;
+}
+.wrapper {
+    padding: 9px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border: 1px solid rgba(128,128,128,0.419);
+    border-radius: 5px;
+    margin-right: 20px;
+    margin-bottom: 10px;
+}
+.wrapper label{
+    margin-right:45px;
+}
+.wrapper input{
+    margin-top: 5px;
+}
+.register_policy{
+    font-size: 12px;
+    color: #1c1e21;
+    margin-left: 10px;
+    margin-right: 10px;
+    font-weight: 400;
+    margin-bottom: 20px;
+}
+.sizing{
+    margin-left: 6px;
+}
+.register_policy span{
+    color: #385898;
+}
+.register_login{
+    color: #1877f2;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 17px;
+    line-height: 20px;
+    margin-bottom: 20px;
+}
+a{
+    text-decoration: none;
+}
+button:hover{
+    background-color: #005f75;
+}
+.warning {
+    padding: -1px 5px 7px; 
+    font-size: smaller;
+    color: red;
+    margin-right: 260px;
+    margin-top: 50px;
+}

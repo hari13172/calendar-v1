@@ -1,0 +1,77 @@
+/* Main content wrapper */
+.main-content {
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  width: 100%;
+  height: 100vh;
+  overflow: hidden; /* Prevent content overflow outside the main view */
+}
+
+/* Week view container */
+.weekview-container {
+  display: flex;
+  flex-direction: column;
+  width: 90%; /* Adjust width to fit screen */
+  max-width: 1110px; /* Limit maximum width for large screens */
+  height: 90vh; /* Reduce to fit viewport */
+  border: 2px solid #dbd8d8;
+  border-radius: 10px;
+  background-color: #ffffff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+/* Header for days and time column */
+.weekview-header {
+  display: flex;
+  border-bottom: 2px solid #333;
+}
+
+.time-label,
+.day-header {
+  padding: 5px;
+  font-weight: bold;
+  text-align: center;
+  background-color: #f2f2f2;
+  border-right: 1px solid #ddd;
+  flex: 1;
+  font-size: 0.9rem; /* Resize text for better fit */
+}
+
+/* Week view body with scroll */
+.weekview-body {
+  flex-grow: 1;
+  overflow-y: auto;
+  height: calc(100% - 50px);
+  max-height: calc(100% - 50px);
+}
+
+/* Time labels and event cells */
+.weekview-row {
+  display: flex;
+  height: 50px; /* Adjust height to fit more slots */
+}
+
+.time-label {
+  padding: 5px;
+  font-weight: bold;
+  background-color: #f2f2f2;
+  text-align: center;
+  width: 15%;
+  border-right: 1px solid #ddd;
+  font-size: 0.9rem;
+}
+
+.event-cell {
+  background-color: #ffffff;
+  cursor: pointer;
+  border-top: 1px solid #ddd;
+  border-left: 1px solid #ddd;
+  flex: 1;
+}
+
+/* Hover effect */
+.event-cell:hover {
+  background-color: #e3f2fd;
+}

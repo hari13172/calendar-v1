@@ -1,0 +1,132 @@
+/* Overall layout adjustments */
+.small-calendar {
+  margin-top: 2.25rem; /* mt-9 */
+}
+
+/* Calendar month styling */
+.calendar-month {
+  color: #6b7280; /* text-gray-500 */
+  font-weight: bold;
+  font-size: 0.800rem; /* Reduced font size for month/year */
+  display: flex;
+  align-items: center;
+  white-space: nowrap; /* Prevent text from wrapping */
+  margin-left: -0.5rem; /* Move the month more to the left */
+  justify-content: space-between; /* Ensure space between month/year and navigation buttons */
+}
+
+/* Special handling for February, September, November, December */
+.calendar-month .month-name,
+.calendar-month .year {
+  display: inline-block;
+}
+
+/* Adjust margins for months like February, September, November, December */
+.calendar-month.feb-sep-nov-dec .month-name {
+  margin-right: 0.25rem;
+}
+
+.calendar-month.feb-sep-nov-dec .year {
+  margin-left: 0.25rem;
+}
+
+/* Calendar arrows (Left and Right) */
+.nav-icon {
+  cursor: pointer;
+  color: #4b5563; /* text-gray-600 */
+  margin: 0 0.5rem;
+}
+
+/* Month/year section */
+.month-year {
+  display: flex;
+  align-items: center;
+  font-size: 1.125rem; /* Slightly larger font size for the month/year */
+  font-weight: bold;
+  justify-content: center; /* Align month/year in the center */
+  margin-left: 1rem; /* Slight margin to separate from other elements */
+}
+
+/* Navigation buttons */
+.nav-button {
+  padding: 8px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Adjust the calendar grid layout */
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-template-rows: repeat(6, 1fr);
+}
+
+/* Weekday labels styling */
+.calendar-weekday {
+  font-size: 0.75rem; /* Small font size for weekday labels */
+  padding: 0.25rem 0;
+  text-align: center;
+}
+
+/* Navigation buttons container placed above the weekday labels */
+.nav-buttons-container {
+  position: absolute;
+  top: -30px; /* Move it above the weekday labels */
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center; /* Align the buttons horizontally */
+  z-index: 1; /* Ensure the buttons are above the weekdays */
+}
+
+/* Positioning the navigation buttons */
+.nav-buttons-container .nav-button {
+  margin: 0 0.25rem;
+}
+
+/* Day button styling */
+.calendar-day {
+  padding: 0.25rem 0;
+  width: 100%;
+  font-size: 0.75rem; /* Smaller font size for day numbers */
+}
+
+/* Default day styling */
+.calendar-day {
+  padding: 0.25rem 0;
+  width: 100%; /* Keep the width as per your existing layout */
+  font-size: 0.75rem; /* Smaller font size for day numbers */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  border-radius: 50%; /* Make the day a circle */
+  transition: all 0.3s ease; /* Smooth transition for hover effect */
+}
+
+/* Current day styling */
+.current-day {
+  background-color: #3b82f6; /* bg-blue-500 */
+  color: white;
+  border-radius: 50%; /* Ensure it's round */
+}
+
+/* Selected day styling */
+.selected-day {
+  background-color: #bfdbfe; /* bg-blue-100 */
+  color: #2563eb; /* text-blue-600 */
+  font-weight: bold;
+  border-radius: 50%; /* Ensure it's round */
+}
+
+/* Hover effect for the day */
+.calendar-day:hover {
+  background-color: #3b82f6; /* bg-blue-500 on hover */
+  color: white; /* Change text color to white */
+  transform: scale(1.1); /* Slightly increase the size on hover */
+}
+

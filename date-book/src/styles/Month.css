@@ -1,0 +1,8 @@
+.month-container {
+  flex: 1;
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr); /* 7 columns for days of the week */
+    grid-template-rows: repeat(5, 120px);    /* Fixed height for each row (you can adjust as needed) */
+    overflow-y: auto; /* Enable vertical scrolling on the month view */
+  }

@@ -1,0 +1,7 @@
+.sidebar-container {
+    border: 1px solid #e5e7eb; /* gray-200 */
+    padding: 1.25rem; /* p-5 */
+    width: 16rem; /* w-64 */
+    box-sizing: border-box;
+  }
+  

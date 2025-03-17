@@ -1,0 +1,104 @@
+/* Calendar header container */
+.calendar-header {
+  display: flex;
+  justify-content: space-between; /* Space between left and right sections */
+  align-items: center;
+  padding: 10px 20px;
+  width: 100%; /* Full width of the container */
+}
+
+/* Left section of the calendar (title and controls) */
+.calendar-left {
+  display: flex;
+  align-items: center;
+}
+
+/* Calendar title */
+.calendar-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-left: 0;
+}
+
+/* Controls for today button, arrows, and month/year */
+.calendar-controls {
+  display: flex;
+  align-items: center;
+}
+
+/* Today button */
+.today-button {
+  margin-left: 1.5rem;
+  padding: 8px 16px;
+  background-color: white;
+  color: black;
+  border: 1px solid black;
+  cursor: pointer;
+  border-radius: 50px;
+  font-size: 14px;
+  transition: background-color 0.3s, border-color 0.3s;
+}
+
+.today-button:hover {
+  background-color: #eceff1;
+  border-color: #fcfcfc;
+}
+
+/* Navigation buttons */
+.nav-button {
+  margin-left: 1rem;
+  padding: 8px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.nav-icon {
+  font-size: 24px;
+  color: #333;
+}
+.code {
+  color: inherit;  /* Reset color */
+}
+
+/* Month and year display */
+.month-year {
+  margin-left: 1rem;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+/* View selector container (right side) */
+.view-selector-container {
+  display: flex;
+  justify-content: flex-end; /* Align the view selector to the right */
+  width: 200px; /* Adjust to fit your desired view selector width */
+}
+/* Calendar header container */
+.calendar-header {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Center all content initially */
+  padding: 10px 20px;
+  width: 100%;
+  position: relative;
+}
+
+/* Left section of the calendar (title and controls) */
+.calendar-left {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; /* Keep everything aligned to the left */
+  flex: 1; /* Take up available space on the left */
+}
+
+/* View selector container (after the center) */
+.view-selector-container {
+  display: flex;
+  justify-content: flex-start;
+  position: absolute; /* Position it after the center */
+  left: 50%; /* Centered in the header */
+  transform: translateX(25%); /* Move it to the right from the center */
+}
+
+

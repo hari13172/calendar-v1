@@ -1,0 +1,18 @@
+.create-event-button {
+  border: 1px solid #ddd; /* Border color */
+  padding: 0.5rem; /* Padding around the content */
+  border-radius: 9999px; /* Fully rounded button */
+  display: flex; /* Flexbox layout */
+  align-items: center; /* Vertically center items */
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); /* Light shadow */
+  transition: box-shadow 0.2s ease-in-out; /* Smooth transition effect */
+}
+
+.create-event-button:hover {
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Darker shadow on hover */
+}
+
+.create-event-text {
+  padding-left: 0.75rem; /* Space on the left */
+  padding-right: 1.75rem; /* Space on the right */
+}

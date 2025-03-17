@@ -1,0 +1,143 @@
+.modal-container {
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .modal-form {
+    background-color: white;
+    border-radius: 0.5rem;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    width: 25%;
+  }
+  
+  .modal-header {
+    background-color: #f3f4f6;
+    padding: 0.5rem 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .icon {
+    color: #9ca3af; /* gray-400 */
+  }
+  
+  .clickable {
+    cursor: pointer;
+  }
+  
+  .modal-content {
+    padding: 1rem;
+  }
+  
+  .form-grid {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 1.75rem;
+    align-items: end;
+  }
+  
+  .title-input,
+  .description-input {
+    padding: 0.75rem 0;
+    border: none;
+    border-bottom: 2px solid #e5e7eb; /* gray-200 */
+    font-size: 1.25rem;
+    color: #374151; /* gray-800 */
+    outline: none;
+  }
+  
+  .title-input:focus,
+  .description-input:focus {
+    border-color: #e0e3e9; /* blue-500 */
+  }
+  
+  .label-selector {
+    display: flex;
+    gap: 0.5rem;
+  }
+  
+  .label-circle {
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 9999px; /* Fully rounded */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+  
+  .check-icon {
+    color: white;
+    font-size: 0.875rem; /* Equivalent to text-sm */
+  }
+  
+  .modal-footer {
+    display: flex;
+    justify-content: flex-end;
+    padding: 1rem;
+    border-top: 1px solid #e5e7eb; /* gray-200 */
+  }
+  
+  .save-button {
+    background-color: #3b82f6; /* blue-500 */
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 0.375rem; /* rounded-md */
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+  
+  .save-button:hover {
+    background-color: #2563eb; /* blue-600 */
+  }
+  .label-circle {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+  }
+  
+  .indigo {
+    background-color: #4f46e5;
+  }
+  
+  .gray {
+    background-color: #6b7280;
+  }
+  
+  .green {
+    background-color: #10b981;
+  }
+  
+  .blue {
+    background-color: #3b82f6;
+  }
+  
+  .red {
+    background-color: #ef4444;
+  }
+  
+  .purple {
+    background-color: #8b5cf6;
+  }
+  
+  
+  .check-icon {
+    font-size: 14px;
+    color: white;
+  }
+  .label-selector .label-circle.selected {
+    border: 2px solid #3b82f6; /* Optional: Outline selected color */
+  }
+  
+  

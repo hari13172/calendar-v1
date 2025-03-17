@@ -1,0 +1,58 @@
+.label-title {
+    color: #6b7280; /* gray-500 */
+    font-weight: bold;
+    margin-top: 2.5rem;
+  }
+  
+  .label-item {
+    display: block;
+    margin-top: 0.75rem;
+    display: flex;
+    align-items: center;
+  }
+  
+  .label-checkbox {
+    height: 1.25rem;
+    width: 1.25rem;
+    border-radius: 0.25rem;
+    cursor: pointer;
+  }
+  
+  .label-text {
+    margin-left: 0.5rem;
+    color: #374151; /* gray-700 */
+    text-transform: capitalize;
+  }
+  
+  /* Dynamic label colors */
+  .label-color-indigo {
+  background-color: #5c67f2; /* Updated indigo shade */
+}
+
+.label-color-gray {
+  background-color: #b0b0b0; /* Updated gray shade */
+}
+
+.label-color-green {
+  background-color: #34d399; /* Updated green shade */
+}
+
+.label-color-blue {
+  background-color: #3b82f6; /* Updated blue shade */
+}
+
+.label-color-red {
+  background-color: #ef4444; /* Updated red shade */
+}
+
+.label-color-purple {
+  background-color: #8b5cf6; /* Updated purple shade */
+}
+
+.label-checkbox {
+  height: 1.25rem;
+  width: 1.25rem;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  border: 2px solid transparent; /* Border color dynamically set via inline styles */
+}

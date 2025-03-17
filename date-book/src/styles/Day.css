@@ -1,0 +1,91 @@
+.day-container {
+  border: 1px solid #e5e7eb; /* gray-200 */
+  display: flex;
+  flex-direction: column;
+}
+
+.day-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.day-name {
+  font-size: 0.875rem; /* Equivalent to text-sm in Tailwind */
+  margin-top: 0.25rem;
+}
+
+.day-number {
+  font-size: 0.875rem; /* Equivalent to text-sm in Tailwind */
+  padding: 0.25rem;
+  margin: 0.25rem 0;
+  text-align: center;
+}
+
+.current-day {
+  background-color: #2563eb; /* blue-600 */
+  color: #ffffff;
+  border-radius: 9999px; /* Fully rounded */
+  width: 1.75rem; /* Equivalent to w-7 in Tailwind */
+}
+
+.day-body {
+  flex: 1;
+  cursor: pointer;
+  padding: 0.25rem;
+  box-sizing: border-box;
+  /* No scrollbar by default */
+  overflow-y: hidden;
+}
+
+.day-body.scrollable {
+  /* Apply the scroll and max-height when there are at least 2 events */
+  max-height: 5rem; /* Adjust as needed for more space */
+  overflow-y: auto; /* Enable vertical scrolling */
+}
+
+/* Event label styles */
+[class^="event-label-"] {
+  padding: 0.25rem;
+  margin-bottom: 0.25rem;
+  border-radius: 0.25rem;
+  font-size: 0.875rem; /* Equivalent to text-sm in Tailwind */
+  color: #4b5563; /* gray-600 */
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.event-label-blue {
+  background-color: #1b7ef8; /* Light blue background */
+}
+
+.event-label-red {
+  background-color: #eec9c9; /* Light red background */
+}
+
+.event-label-green {
+  background-color: #a1eebc; /* Light green background */
+}
+
+.event-label-indigo {
+  background-color: #b89ff1; /* Light green background */
+}
+
+.event-label-gray {
+  background-color: #817d81; /* Light green background */
+}
+
+.event-label-purple {
+  background-color: #e59ff3; /* Light green background */
+}
+
+/* Scrollbar style */
+.day-body::-webkit-scrollbar {
+  width: 5px;
+}
+
+.day-body::-webkit-scrollbar-thumb {
+  background-color: #9ca3af;
+  border-radius: 5px;
+}
