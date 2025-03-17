@@ -1,12 +1,10 @@
-
-
 import React, { useState, useEffect, useContext } from "react";
 import "../styles/WeekView.css";  // Custom styles
 import EventModal from "./EventModal";
 import GlobalContext from "../context/GlobalContext";
 import dayjs from 'dayjs';  // If using dayjs
 
-const WeekView = ({ currentDate }) => {
+const WeekView = ({ selectedDate, onDateChange }) => {
   const { savedEvents, setShowEventModal, setSelectedEvent, setDaySelected, showEventModal } = useContext(GlobalContext);
   const [startOfWeek, setStartOfWeek] = useState(null);
   const [selectedHour, setSelectedHour] = useState(null);
@@ -24,8 +22,8 @@ const WeekView = ({ currentDate }) => {
   };
 
   useEffect(() => {
-    setStartOfWeek(calculateStartOfWeek(currentDate));
-  }, [currentDate]);
+    setStartOfWeek(calculateStartOfWeek(selectedDate));
+  }, [selectedDate]);
 
   // Generate time slots (12-hour format)
   const generateTimeSlots = () => {
@@ -58,6 +56,20 @@ const WeekView = ({ currentDate }) => {
     );
   };
 
+  const handlePreviousWeek = () => {
+    const previousWeekStart = new Date(startOfWeek);
+    previousWeekStart.setDate(startOfWeek.getDate() - 7);
+    setStartOfWeek(previousWeekStart);
+    onDateChange?.(previousWeekStart); // Notify parent of date change
+  };
+
+  const handleNextWeek = () => {
+    const nextWeekStart = new Date(startOfWeek);
+    nextWeekStart.setDate(startOfWeek.getDate() + 7);
+    setStartOfWeek(nextWeekStart);
+    onDateChange?.(nextWeekStart); // Notify parent of date change
+  };
+
   if (!startOfWeek) return null;
 
   const daysOfWeek = Array.from({ length: 7 }).map((_, i) => {
@@ -67,52 +79,58 @@ const WeekView = ({ currentDate }) => {
   });
 
   return (
-    <div className="weekview-container">
-      <div className="weekview-header">
-        <div className="time-label">Time</div>
-        {daysOfWeek.map((date, i) => (
-          <div key={i} className="day-header">
-            {formatDateHeader(date)}
-          </div>
-        ))}
+    <div className="weekview-outer-container">
+      <div className="navigation-buttons">
+        <button className="btn-1" onClick={handlePreviousWeek}>Previous Week</button>
+        <button className="btn-2" onClick={handleNextWeek}>Next Week</button>
       </div>
-      <div className="weekview-body">
-        {generateTimeSlots().map((time, timeIndex) => (
-          <div key={timeIndex} className="weekview-row">
-            <div className="time-label">{time}</div>
-            {daysOfWeek.map((date, dayIndex) => {
-              const events = getEventsForSlot(timeIndex, date);
+      <div className="weekview-container">
+        <div className="weekview-header">
+          <div className="time-label">Time</div>
+          {daysOfWeek.map((date, i) => (
+            <div key={i} className="day-header">
+              {formatDateHeader(date)}
+            </div>
+          ))}
+        </div>
+        <div className="weekview-body">
+          {generateTimeSlots().map((time, timeIndex) => (
+            <div key={timeIndex} className="weekview-row">
+              <div className="time-label">{time}</div>
+              {daysOfWeek.map((date, dayIndex) => {
+                const events = getEventsForSlot(timeIndex, date);
 
-              return (
-                <div
-                  key={dayIndex}
-                  className="event-cell"
-                  onClick={() => handleTimeSlotClick(timeIndex, date)} // Open modal on cell click
-                >
-                  {events.map((event, eventIndex) => (
-                    <div
-                      key={eventIndex}
-                      onClick={(e) => {
-                        e.stopPropagation(); // Prevent modal from opening again
-                        setSelectedEvent(event); // Set the event data in global context
-                        setShowEventModal(true); // Open the event modal
-                      }}
-                      className={`event-label-${event.label}`}
-                    >
-                      {event.title}
-                    </div>
-                  ))}
-                </div>
-              );
-            })}
-          </div>
-        ))}
+                return (
+                  <div
+                    key={dayIndex}
+                    className="event-cell"
+                    onClick={() => handleTimeSlotClick(timeIndex, date)} // Open modal on cell click
+                  >
+                    {events.map((event, eventIndex) => (
+                      <div
+                        key={eventIndex}
+                        onClick={(e) => {
+                          e.stopPropagation(); // Prevent modal from opening again
+                          setSelectedEvent(event); // Set the event data in global context
+                          setShowEventModal(true); // Open the event modal
+                        }}
+                        className={`event-label-${event.label}`}
+                      >
+                        {event.title}
+                      </div>
+                    ))}
+                  </div>
+                );
+              })}
+            </div>
+          ))}
+        </div>
+
+        {/* Show EventModal if modal is open */}
+        {showEventModal && (
+          <EventModal selectedHour={selectedHour} userSelectedDate={userSelectedDate} />
+        )}
       </div>
-
-      {/* Show EventModal if modal is open */}
-      {showEventModal && (
-        <EventModal selectedHour={selectedHour} userSelectedDate={userSelectedDate} />
-      )}
     </div>
   );
 };

@@ -64,3 +64,73 @@
   font-size: 20px;
   gap: 10px;
 }
+
+/* WeekView.css */
+.weekview-outer-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.navigation-buttons {
+  padding: 10px;
+  background-color: #f9f9f9; /* Optional: light background to distinguish from the week view */
+}
+
+.btn-1,
+.btn-2 {
+  padding: 5px 10px;
+  margin-right: 10px;
+  background-color: #f0f0f0;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-1:hover,
+.btn-2:hover {
+  background-color: #e0e0e0;
+}
+
+.weekview-container {
+  display: flex;
+  flex-direction: column;
+  flex: 1; /* Ensure it takes up remaining space */
+  border: 1px solid #ddd; /* Optional: border to define the "box" */
+  width: 150%;
+}
+
+.weekview-header {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+.time-label {
+  width: 100px;
+  text-align: right;
+  padding-right: 10px;
+}
+
+.day-header {
+  flex: 1;
+  text-align: center;
+  font-weight: bold;
+}
+
+.weekview-body {
+  flex: 1;
+  overflow-y: auto;
+}
+
+.weekview-row {
+  display: flex;
+  border-bottom: 1px solid #eee;
+}
+
+.event-cell {
+  flex: 1;
+  min-height: 40px;
+  border-right: 1px solid #eee;
+  cursor: pointer;
+}

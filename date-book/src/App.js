@@ -1,4 +1,3 @@
-
 import React, { useState, useContext, useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
 import "./App.css";
@@ -11,7 +10,7 @@ import EventModal from "./components/EventModal";
 import DayView from "./components/DayView";
 import WeekView from "./components/WeekView";
 import Login from "./components/Login";
-import Signup from "./components/Signup"; // Import Signup
+import Signup from "./components/Signup";
 
 function App() {
   return (
@@ -22,9 +21,10 @@ function App() {
 }
 
 function AppContent() {
-  const [currenMonth, setCurrentMonth] = useState(getMonth());
+  const [currentMonth, setCurrentMonth] = useState(getMonth());
+  const [selectedDate, setSelectedDate] = useState(new Date());
   const { monthIndex, showEventModal } = useContext(GlobalContext);
-  const location = useLocation(); // Track the current route
+  const location = useLocation();
   const [currentView, setCurrentView] = useState(location.pathname.split("/")[1] || "month");
 
   useEffect(() => {
@@ -32,16 +32,19 @@ function AppContent() {
   }, [monthIndex]);
 
   useEffect(() => {
-    // Update the current view whenever the route changes
     setCurrentView(location.pathname.split("/")[1] || "month");
   }, [location]);
+
+  const handleDateChange = (newDate) => {
+    setSelectedDate(newDate);
+  };
 
   return (
     <React.Fragment>
       {showEventModal && <EventModal />}
       <Routes>
         <Route path="/" element={<Login />} />
-        <Route path="/signup" element={<Signup />} /> {/* Add Signup route */}
+        <Route path="/signup" element={<Signup />} />
         <Route
           path="/month"
           element={
@@ -49,7 +52,7 @@ function AppContent() {
               <CalendarHeader currentView={currentView} setView={setCurrentView} />
               <div className="flex flex-1">
                 <Sidebar />
-                <Month month={currenMonth} />
+                <Month month={currentMonth} />
               </div>
             </div>
           }
@@ -61,7 +64,7 @@ function AppContent() {
               <CalendarHeader currentView={currentView} setView={setCurrentView} />
               <div className="flex flex-1">
                 <Sidebar />
-                <DayView />
+                <DayView selectedDate={selectedDate} onDateChange={handleDateChange} />
               </div>
             </div>
           }
@@ -73,7 +76,7 @@ function AppContent() {
               <CalendarHeader currentView={currentView} setView={setCurrentView} />
               <div className="flex flex-1">
                 <Sidebar />
-                <WeekView />
+                <WeekView selectedDate={selectedDate} onDateChange={handleDateChange} />
               </div>
             </div>
           }

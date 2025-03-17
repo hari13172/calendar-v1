@@ -3,9 +3,9 @@ import GlobalContext from "../context/GlobalContext";
 import EventModal from "./EventModal";
 import "../styles/DayView.css";
 
-export default function DayView() {
+export default function DayView({ selectedDate, onDateChange }) {
   const [currentTime, setCurrentTime] = useState(new Date());
-  const [userSelectedDate, setUserSelectedDate] = useState(new Date());
+  const [userSelectedDate, setUserSelectedDate] = useState(selectedDate || new Date());
   const [selectedHour, setSelectedHour] = useState(null);
   const { setShowEventModal, showEventModal, filteredEvents, setSelectedEvent } = useContext(GlobalContext);
 
@@ -21,11 +21,13 @@ export default function DayView() {
   };
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentTime(new Date());
-    }, 60000);
+    const interval = setInterval(() => setCurrentTime(new Date()), 60000);
     return () => clearInterval(interval);
   }, []);
+
+  useEffect(() => {
+    setUserSelectedDate(selectedDate || new Date());
+  }, [selectedDate]);
 
   const isToday = isCurrentDay(userSelectedDate);
 
@@ -50,12 +52,14 @@ export default function DayView() {
     const previousDay = new Date(userSelectedDate);
     previousDay.setDate(userSelectedDate.getDate() - 1);
     setUserSelectedDate(previousDay);
+    onDateChange?.(previousDay); // Notify parent of date change
   };
 
   const handleNextDay = () => {
     const nextDay = new Date(userSelectedDate);
     nextDay.setDate(userSelectedDate.getDate() + 1);
     setUserSelectedDate(nextDay);
+    onDateChange?.(nextDay); // Notify parent of date change
   };
 
   return (
@@ -63,18 +67,17 @@ export default function DayView() {
       <div className="header">
         <div className="time-zone">GMT +2</div>
         <div className="date-info">
-          
           <button className="btn-1" onClick={handlePreviousDay}>Previous Day</button>
           <button className="btn-2" onClick={handleNextDay}>Next Day</button>
         </div>
-          <div className="date-info-text">
+        <div className="date-info-text">
           <div>{userSelectedDate.toLocaleString("en-US", { weekday: "short" })}</div>
           <div className={`date ${isToday ? "today" : ""}`}>
             <span className={`date-circle ${isToday ? "bg-blue text-white" : "bg-gray text-black"}`}>
               {userSelectedDate.getDate()}
             </span>
           </div>
-          </div>
+        </div>
       </div>
 
       <div className="day-view">
@@ -101,7 +104,7 @@ export default function DayView() {
                   <div
                     key={idx}
                     onClick={(e) => {
-                      e.stopPropagation();  // Prevent modal from opening on event click
+                      e.stopPropagation();
                       setSelectedEvent(evt);
                       setShowEventModal(true);
                     }}
@@ -113,23 +116,17 @@ export default function DayView() {
               </div>
             );
           })}
-
           {isToday && (
             <div
               className="current-time-indicator"
-              style={{
-                top: `${(currentTime.getHours() * 40) + (currentTime.getMinutes() / 60) * 40}px`
-              }}
+              style={{ top: `${(currentTime.getHours() * 40) + (currentTime.getMinutes() / 60) * 40}px` }}
             />
           )}
         </div>
       </div>
 
       {showEventModal && (
-        <EventModal 
-          selectedHour={selectedHour}  
-          userSelectedDate={userSelectedDate}  
-        />
+        <EventModal selectedHour={selectedHour} userSelectedDate={userSelectedDate} />
       )}
     </div>
   );
